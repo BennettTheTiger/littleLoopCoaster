@@ -1,0 +1,17 @@
+{
+  "name": "coaster",
+  "version": "1.0.0",
+  "description": "this is the brains for a knex coaster",
+  "main": "coasterBrain.js",
+  "dependencies": {
+    "firebase": "^3.6.4",
+    "firebase-admin": "^4.0.4",
+    "johnny-five": "^0.10.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bennnett Schoonerman",
+  "license": "ISC"
+}

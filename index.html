@@ -1,5 +1,122 @@
 <html>
+<head>
+  <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+  <title>Little Loop</title>
+<link rel="icon" 
+      type="image/png" 
+      href="assets/logo.png">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+<link href="coasterStyles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="container-fluid" id="video">
+		<video  width="110%"  autoplay loop>
+			<source src="assets/webFinal.mp4" type="video/mp4">
+		
+		</video>
+		<img id="logo" src="assets/logoNoBg.png" alt="logo">
+		
+		
+		
+	</div>
+		<h2 align="center">Coaster Controls</h2>
+	<h3 align="center" id="object2"></h3>
 
 
-<h1>Hello!</h1>
-<html>
+
+<div class="container-fluid" id="controlPannel">
+<div class="container-fluid" id="blackLayer">
+ <div class="col-xs-6">
+  <button id="lightbtn" onclick="lightSwitch()">Lights</button>
+  <button id="singlebtn" onclick="sendSingle()">Send Car</button>
+	</div>
+	<div class="col-xs-6">
+  <button onclick="contLoop()">Continous Loop</button>
+  <button id="forbtn" onClick="runFor()">Run for</button><input id="loopNumber" type="number" min="1" max="5" value="1">
+	</div>
+  
+  <button id="eStop" onclick="emergencyStop()">Emergency Stop</button>
+	</div>
+	</div>
+  <div class="container" id="stats">
+	  <h2>Live Stats </h2>
+	  	<h3 id="object1"></h3>
+	  	<h3 id="object2"></h3>
+	  	<h3 id="time"></h3>
+	  	<h3 id="recordTime"></h3>
+  		<h3 id="loop2"></h3>
+	</div>
+	<div class="container" id="about">
+	<hr>
+		<h2>About</h2>
+		<h4>Overview</h4>
+		<p>Over winter break I found an old <a href="http://www.knex.com/" target="new">knex</a> Coaster in my basement. I decided to brush off the dust and see what I could build with the few parts that had made it back in the box from the last time it was set up. This got me thinking... hmmm I bet I could automate this whole process. I recently got some <a href="https://www.arduino.cc/" target="new">Arduinos</a> for christmas lets see what those bad boys can do!</p>
+		
+		<h4>A learning process </h4>
+		<p>The first major obstacle I faced when building this coaster was a design that would be able to make a consistant circuit with the limitied parts I had. My first design included a hill that was very steep and didnt offer the chain a "shortest path" which led to many hours of tinkering trying to troubleshoot the slack in the chain. On my second design I was able to create a much more consistant grade that resolved the slack problem. Now I had to try and get the car to return to the chain with what little inertia it had. This processes also took quite some time beecause after a few tests proved it worked. One would come up just short, literally...</p> 
+		
+		<h4>Electrical Engineering</h4>
+		<p>This was my first project with the Arduinos. I had some experice working with breadboards and other simple circuits in high school. But I needed a refresher on most topics. Originally I was able to prototype the whole coaster using LED's and three push button switches. I quickly learned the Arduino IDE which is easy to pick up if you have other programing experience and before I knew it I had a working coaster. But I wasnt satisfied, this is cool and all, however I wanted this coaster to be connected to the internet. It could join the community of <a href="https://en.wikipedia.org/wiki/Internet_of_things" target="new">IOT</a>. How cool would it be if I could collect data and control it from a website.<p>
+		
+		<h4>The Joys of Javascript</h4>
+		<p>Now the next set of problems came, how do I work with a database and communicate to an arduino? I only have knowlege of javascript, processing, HTML, CSS, some swift, and c++. So this seemed like a very daunting task. However a real neat new database platfrom from google called <a href="https://firebase.google.com/" target="new">Firebase</a> made things extreamly easy and opened several other doors. So now that I had the database down the next problem was getting the database to communicate with an arduino. The fact that I didt have a wifi sheild for the arduino meant it would need to listen via a host computer/server. After some research I learned that <a href="https://nodejs.org/en/" target="new">Node.js</a> and the <a href="http://johnny-five.io/" target="new">Johnny-five</a> Library make it easy to do everything with javascript!</p>
+		
+		<div class="col-sm-6">
+			<h3>Problem</h3>
+			<ol>
+				<li>Chain Slack</li>
+				<li>Inconsistant Returns</li>
+				<li>Button readings inconsistant</li>
+				<li>Have a motorized lift system</li>
+				<li>Motor amps more than arduino supplies</li>
+				<li>Led strip amps more than arduino can supply</li>
+				<li>Realtime Database without SQL or PHP knowledge</li>
+				<li>Code Errors</li>
+				<li>Murphys Law</li>
+			</ol>
+			
+			
+		</div>
+		<div class="col-sm-6">
+			<h3>Solution</h3>
+			<ol>
+				<li>New Coaster Design</li>
+				<li>New coaster Design</li>
+				<li>Learn how to impliment pullup/pulldown resistors</li>
+				<li>Strip apart an old knex motor and solder wires to the battery terminals</li>
+				<li>Learn how a relay works and use a alternate power supply like a model train controller</li>
+				<li>Build the Led circuit to be high and have the arduino ground it instead of supplying power</li>
+				<li>Learn how to use Firebase (serioulsy cool and a life saver!)</li>
+				<li>Lots of debugging time and online reading forums</li>
+				<li>Patience</li>
+			
+			</ol>
+		</div>
+		
+		<p>There were many other obstacles along the way. The code could be more consise but I had a vision and setout to build it with the limited tools I had and made it a reality. View the full build video at my <a href="https://www.youtube.com/channel/UCbRHH80NzEc3H1Cn1pX-GBA" target="new">YouTube Channel</a> or visit my<a href="https://github.com/BennettTheTiger" target="new"> gitHub</a> to view the project in its entirerty </p>
+		
+	</div>
+	<div class="container-fluid" id="tools">
+		<div class="col-sm-4 tools"><img src="assets/arduinoLogo.png"></div>
+		<div class="col-sm-4 tools"><img src="assets/firebase.png"></div>
+		<div class="col-sm-4 tools"><img src="assets/gitHub.png"></div>
+		<div class="col-sm-4 tools"><img src="assets/logo 2.png"></div>
+		<div class="col-sm-4 tools"><img src="assets/node.png"></div>	
+		<div class="col-sm-4 tools"><img src="assets/johnnyfive.png"></div>
+		
+	</div>
+</body>
+<script src="app.js" type="text/javascript"></script>
+</html>
