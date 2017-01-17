@@ -13,3 +13,9 @@ Durring my winter break I had some free time on my hands. I recenty got two ardu
 7. A text editor of your choice I prefer Atom or DreamWeaver but Sublime or Adobe Brackets are two other favorites
 8. Lots of jumper wires and 220ohm resistors
 
+# Things you should know
+1. HTML
+2. CSS
+3. Javascript
+4. Some basic knowledge of databases and JSON data
+5. How to be patient!
