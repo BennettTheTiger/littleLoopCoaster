@@ -14,8 +14,13 @@ Durring my winter break I had some free time on my hands. I recenty got two ardu
 8. Lots of jumper wires and 220ohm resistors
 
 # Things you should know
+This was my first time using firebase, node.js, johhny-five, and arduinos! So there are probably several errors or ways to simplify the code!
 1. HTML
 2. CSS
 3. Javascript
 4. Some basic knowledge of databases and JSON data
-5. How to be patient!
+
+# IMPORTANT
+Keep (app.js, index.html, & coasterStyles.css) together!
+coasterBrain.js will need the dependecies specified in the package.JSON file. It also must connected to the ardino!
+
