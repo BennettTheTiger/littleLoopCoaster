@@ -1,5 +1,5 @@
-# littleLoopCoaster
-Little Loops GitHub page
+# Project Overview
+Durring my winter break I had some free time on my hands. I recenty got two arduinos for christmas and found an old knex coaster in my basement. I managed to fabricate a small little loop da loop coaster with what parts I had. Then I decided I wanted to automate the coaster using the arduino. Next thing I knew I had build a coaster that was fully automated using the code found in the ardino folder. However I wanted it to become connected to the internet of things. Using the knowledge and the tools availible I was able to do it using only javascript and some html and css.
 
 
 
