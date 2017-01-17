@@ -10,7 +10,7 @@ Durring my winter break I had some free time on my hands. I recenty got two ardu
 4. Node.js and npm installed on your computer
 5. npm install johhny-five 
 6. npm install firebase
-7. A text editor of your choice I prefer Atom or DreamWeaver but Sublime or Adobe Brackets are two other favorites
+7. A text editor of your choice I prefer Atom or DreamWeaver but Sublime or Adobe Brackets are two other popular choices
 8. Lots of jumper wires and 220ohm resistors
 
 # Things you should know
@@ -22,5 +22,5 @@ This was my first time using firebase, node.js, johhny-five, and arduinos! So th
 
 # IMPORTANT
 Keep (app.js, index.html, & coasterStyles.css) together!
-coasterBrain.js will need the dependecies specified in the package.JSON file. It also must connected to the ardino!
+coasterBrain.js will need the dependecies specified in the package.JSON file. It also must connected to the arduino!
 
